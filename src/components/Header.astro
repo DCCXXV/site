@@ -1,0 +1,84 @@
+---
+import { MoveUpRight } from "lucide-astro";
+
+const currentPath = Astro.url.pathname;
+---
+
+<header>
+    <div id="top-bar">
+        <p id="site-name" class="cardo-bold">DCCXXV.DEV</p>
+        <p id="fullname" class="voltaire-regular">Marco Antonio Pérez Neira</p>
+    </div>
+    <nav>
+        <ul>
+            <li class={`bg-yellow ${currentPath === "/" ? "active" : ""}`}>
+                <a href="/">About</a>
+            </li>
+            <li
+                class={`bg-cyan ${currentPath === "/projects" || currentPath === "/projects/" ? "active" : ""}`}
+            >
+                <a href="/projects">Projects</a>
+            </li>
+            <li
+                class={`bg-pink ${currentPath.startsWith("/blog") ? "active" : ""}`}
+            >
+                <a href="/blog">Blog</a>
+            </li>
+            <li class="bg-teal">
+                <a href="https://github.com/DCCXXV/">
+                    Github<MoveUpRight size={15} />
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<style>
+    header {
+        margin: 1.5rem;
+    }
+
+    #top-bar {
+        padding: 0.5rem 0.5rem 2rem 0.5rem;
+        border: var(--sol-black) 1px solid;
+        background-color: var(--sol-metal);
+
+        /*box-shadow: -2px 2px 0 var(--sol-dark);*/
+    }
+
+    #site-name {
+        font-size: 32px;
+    }
+
+    #fullname {
+        font-size: 20px;
+    }
+
+    nav {
+        position: sticky;
+    }
+
+    ul {
+        display: flex;
+        gap: 0.25rem;
+        list-style-type: none;
+    }
+
+    li {
+        padding: 0.25rem 2rem;
+        border: var(--sol-black) 1px solid;
+        margin-top: 0.25rem;
+    }
+
+    a {
+        color: var(--sol-black);
+        text-decoration: none;
+    }
+
+    li:has(a:hover) {
+        filter: brightness(0.9);
+    }
+
+    .active {
+        text-decoration: underline;
+    }
+</style>

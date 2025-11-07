@@ -8,9 +8,18 @@ importers:
 
   .:
     dependencies:
+      '@lucide/astro':
+        specifier: ^0.552.0
+        version: 0.552.0(astro@5.15.3(@types/node@24.10.0)(rollup@4.52.5)(typescript@5.9.3))
       astro:
         specifier: ^5.15.3
         version: 5.15.3(@types/node@24.10.0)(rollup@4.52.5)(typescript@5.9.3)
+      lucide-astro:
+        specifier: ^0.552.0
+        version: 0.552.0(astro@5.15.3(@types/node@24.10.0)(rollup@4.52.5)(typescript@5.9.3))
+      three:
+        specifier: ^0.181.0
+        version: 0.181.0
 
 packages:
 
@@ -350,6 +359,11 @@ packages:
 
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
+
+  '@lucide/astro@0.552.0':
+    resolution: {integrity: sha512-nPO3RPor+3eOeom+KDmNGDSLYec5DYn5jc085FNNqIpUkl6kH8wnxZhtd53aGJleYrUt3/xIbwLxsrU1cm6epg==}
+    peerDependencies:
+      astro: ^4 || ^5
 
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
@@ -853,6 +867,11 @@ packages:
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
+  lucide-astro@0.552.0:
+    resolution: {integrity: sha512-Wpwn0TmFXcLkBjwyy4u/MrWC/4gB/HXjzDJEMj5kiIqlhGEqIR+rWmTaYL3WrguxdKIbG9jp3VSKkH4kH28xsg==}
+    peerDependencies:
+      astro: '>=2.7.1'
+
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
 
@@ -1190,6 +1209,9 @@ packages:
   strip-ansi@7.1.2:
     resolution: {integrity: sha512-gmBGslpoQJtgnMAvOVqGZpEz9dyoKTCzy2nfz/n8aIFhN/jCE/rCmcxabB6jOOHV+0WNnylOxaxBQPSvcWklhA==}
     engines: {node: '>=12'}
+
+  three@0.181.0:
+    resolution: {integrity: sha512-KGf6EOCOQGshXeleKxpxhbowQwAXR2dLlD93egHtZ9Qmk07Saf8sXDR+7wJb53Z1ORZiatZ4WGST9UsVxhHEbg==}
 
   tiny-inflate@1.0.3:
     resolution: {integrity: sha512-pkY1fj1cKHb2seWDy0B16HeWyczlJA9/WW3u3c4z/NiWDsO3DOU5D7nhTLE9CF0yXv/QZFY7sEJmj24dK+Rrqw==}
@@ -1697,6 +1719,10 @@ snapshots:
     optional: true
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
+
+  '@lucide/astro@0.552.0(astro@5.15.3(@types/node@24.10.0)(rollup@4.52.5)(typescript@5.9.3))':
+    dependencies:
+      astro: 5.15.3(@types/node@24.10.0)(rollup@4.52.5)(typescript@5.9.3)
 
   '@oslojs/encoding@1.1.0': {}
 
@@ -2281,6 +2307,10 @@ snapshots:
   longest-streak@3.1.0: {}
 
   lru-cache@10.4.3: {}
+
+  lucide-astro@0.552.0(astro@5.15.3(@types/node@24.10.0)(rollup@4.52.5)(typescript@5.9.3)):
+    dependencies:
+      astro: 5.15.3(@types/node@24.10.0)(rollup@4.52.5)(typescript@5.9.3)
 
   magic-string@0.30.21:
     dependencies:
@@ -2904,6 +2934,8 @@ snapshots:
   strip-ansi@7.1.2:
     dependencies:
       ansi-regex: 6.2.2
+
+  three@0.181.0: {}
 
   tiny-inflate@1.0.3: {}
 

@@ -9,6 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.15.3"
+    "@lucide/astro": "^0.552.0",
+    "astro": "^5.15.3",
+    "lucide-astro": "^0.552.0",
+    "three": "^0.181.0"
   }
 }

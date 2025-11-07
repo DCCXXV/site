@@ -1,0 +1,121 @@
+<section id="frame">
+    <div id="terminal">
+        <div id="output">
+            &gt; Hello world!<br />&gt; Type 'help' to see available commands<br
+            /><br />
+        </div>
+        <div id="input-line">
+            <span>&gt;</span>
+            <input type="text" id="terminal-input" autofocus />
+        </div>
+    </div>
+</section>
+
+<style>
+    #frame {
+        background-color: var(--sol-metal);
+        border: var(--sol-dark) 1px solid;
+        margin: 1rem 0rem;
+    }
+    #terminal {
+        background-color: var(--sol-black);
+        color: var(--sol-yellow);
+        height: 500px;
+        padding: 0.5rem;
+        font-family: "Courier New", monospace;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        font-variant-emoji: text;
+    }
+    #input-line {
+        display: flex;
+        gap: 0.5rem;
+    }
+    #terminal-input {
+        background: var(--sol-black);
+        border: none;
+        color: var(--sol-yellow);
+        font-family: "Courier New", monospace;
+        font-size: 1rem;
+        outline: none;
+        flex-grow: 1;
+    }
+    #terminal::-webkit-scrollbar {
+        width: 8px;
+    }
+    #terminal::-webkit-scrollbar-track {
+        background: var(--sol-black);
+    }
+    #terminal::-webkit-scrollbar-thumb {
+        background: var(--sol-yellow);
+    }
+
+    ::selection {
+        color: var(--sol-black);
+        background-color: var(--sol-yellow);
+    }
+</style>
+
+<script>
+    const commands = {
+        help: `Available commands:
+  help     - Show this message
+  about    - Learn more about me
+  skills   - View my technical skills
+  projects - See my latest projects
+  contact  - Get my contact info
+  clear    - Clear the terminal
+  whoami   - Who am I?`,
+
+        about: `I'm Marco Antonio, a final-year Software Engineering student at Universidad Complutense de Madrid.
+I'm passionate about web development, backend systems, and open-source software.
+Currently learning Go and deepening my knowledge of modern web technologies.`,
+
+        skills: `Languages: Go, Java, Python
+Web: HTML, CSS, Svelte, Astro, Node.js
+Systems: Linux, Git, Docker
+Databases: PostgreSQL, MySQL, sqlite`,
+
+        projects: `Check out my latest projects in the Projects tab above!
+Or visit my GitHub for more: https://github.com/DCCXXV`,
+
+        contact: `📧 Email: marcoantonioperezneira@gmail.com
+📱 X: @DCCXXV_
+🐙 GitHub: DCCXXV`,
+
+        whoami: `marco-antonio@dccxxvdev ~ $`,
+
+        clear: "CLEAR",
+    };
+
+    const terminal = document.getElementById("terminal");
+    const output = document.getElementById("output");
+    const input = document.getElementById("terminal-input");
+
+    terminal.addEventListener("click", () => input.focus());
+
+    input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            const command = input.value.trim().toLowerCase();
+
+            output.innerHTML += `&gt; ${input.value}<br>`;
+
+            if (command === "clear") {
+                output.innerHTML = "";
+            } else if (commands[command]) {
+                output.innerHTML +=
+                    commands[command].replace(/\n/g, "<br>") + "<br><br>";
+            } else if (command === "") {
+                output.innerHTML += "<br>";
+            } else {
+                output.innerHTML += `Command not found: ${command}<br>Type 'help' for available commands<br><br>`;
+            }
+
+            input.value = "";
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+    });
+
+    input.focus();
+</script>

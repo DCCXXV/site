@@ -1,11 +1,191 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Sidebar from "../components/Sidebar.astro";
+import Terminal from "../components/Terminal.astro";
+import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { Clock4 } from "lucide-astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="About">
+    <main>
+        <section id="text">
+            <h1 class="cardo-bold">About me</h1>
+            <p>
+                Hello! I'm Marco Antonio and I am a final-year Software
+                Engineering student at <a href="https://ucm.es"
+                    >Universidad Complutense de Madrid</a
+                >, Spain. For that reason I currently live in Madrid (<span
+                    class="time-tooltip"
+                    title="Current time in Madrid"
+                >
+                    <Clock4 size={15} />
+                    <span id="madrid-time">--:--</span></span
+                > ).
+            </p>
+            <p>
+                I'm passionate about web development, backend systems and
+                open-source software. Currently, I'm learning Go (Golang) and
+                deepening my knowledge of modern web technologies. I am very
+                curious and love trying new technologies and languages that come
+                out to see how I can add them to my stack or what I can learn
+                from them. I believe that it is very useful to learn about most
+                areas in software (even if it's only surface level knowledge) to
+                become a better overall engineer so I try to learn more about
+                low-level concepts, distributed systems, DevOps, databases, even
+                if I'm not sure I'll use that knowledge in my day to day work.
+            </p>
+
+            <p>
+                I value simplicity both in design and in code. I believe the
+                best solutions are often the most straightforward ones, which is
+                why I chose to learn Go, its simplicity and focus on clarity
+                align with how I think software should be built. This philosophy
+                extends to my work: I prefer clean interfaces, readable code,
+                and technologies that don't overcomplicate things, *cough*
+                *cough* rust. You can see this reflected in this website itself,
+                simple but not minimalist, just showing the content for what it
+                is.
+            </p>
+
+            <Terminal />
+
+            <p>
+                You can see more about my skills on this table, order left to
+                right matters, first comes the ones I know the most :
+            </p>
+
+            <table style="width:100%">
+                <tr>
+                    <th class="bg-yellow" rowspan="11">Skills</th>
+                </tr>
+                <tr>
+                    <th class="bg-cyan">Languages</th>
+                    <td colspan="2"
+                        >Java, Go, Python, Javascript, Typescript, Zig</td
+                    >
+                </tr>
+                <tr>
+                    <th class="bg-cyan" rowspan="2">Web</th>
+                    <th class="bg-teal">Backend</th>
+                    <td
+                        >Spring Boot, Go's net/http, Express, Gin, Echo, Flask</td
+                    >
+                </tr>
+                <tr>
+                    <th class="bg-teal">Frontend</th>
+                    <td>Tailwind, Svelte, SvelteKit, Bootstrap, Astro</td>
+                </tr>
+                <tr>
+                    <th class="bg-cyan">APIs/Protocols</th>
+                    <td colspan="2">REST, Websockets</td>
+                </tr>
+                <tr>
+                    <th class="bg-cyan" rowspan="2">Libraries</th>
+                    <th class="bg-teal">Desktop</th>
+                    <td>Wails, Swing, Tkinter</td>
+                </tr>
+                <tr>
+                    <th class="bg-teal">TUIs</th>
+                    <td>Bubble Tea, Lipgloss</td>
+                </tr>
+                <tr>
+                    <th class="bg-cyan">Tools</th>
+                    <td colspan="2">Linux, Git, GitHub, Docker, Vim</td>
+                </tr>
+                <tr>
+                    <th class="bg-cyan">Databases</th>
+                    <td colspan="2"
+                        >PostgreSQL, MySQL, MariaDB, Oracle, SQLite</td
+                    >
+                </tr>
+                <tr>
+                    <th class="bg-cyan">Testing</th>
+                    <td colspan="2">Junit5, gotest, Karate, pytest</td>
+                </tr>
+                <tr>
+                    <th class="bg-cyan">CI/CD</th>
+                    <td colspan="2">GitHub Actions, Docker Compose</td>
+                </tr>
+            </table>
+        </section>
+        <Sidebar />
+    </main>
 </Layout>
+
+<style>
+    main {
+        display: flex;
+    }
+    h1 {
+        text-decoration: underline;
+        margin-bottom: 0.5rem;
+    }
+    p {
+        margin-bottom: 0.5rem;
+        font-variant-emoji: text;
+
+        text-align: justify;
+        hyphens: auto;
+        text-justify: inter-word;
+    }
+    p a {
+        color: var(--sol-blue);
+    }
+    p a:visited {
+        color: var(--sol-dark);
+    }
+    #text {
+        margin: 1.5rem;
+        width: 60%;
+        padding-right: 1.5rem;
+        border-right: 2px dashed var(--sol-dark);
+    }
+    .time-tooltip {
+        cursor: help;
+        position: relative;
+    }
+
+    th,
+    td {
+        border: 1px solid var(--sol-dark);
+        padding: 2rem 0.5rem;
+    }
+
+    td {
+        background-color: var(--sol-metal);
+    }
+
+    @media (max-width: 768px) {
+        main {
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        #text {
+            width: 100%;
+            margin: 0;
+            padding: 1rem;
+            border-right: none;
+            border-bottom: 2px dashed var(--sol-dark);
+            box-sizing: border-box;
+        }
+    }
+</style>
+
+<script>
+    function updateMadridTime() {
+        const now = new Date();
+        const madridTime = now.toLocaleTimeString("en-GB", {
+            timeZone: "Europe/Madrid",
+            hour: "2-digit",
+            minute: "2-digit",
+        });
+        const timeElement = document.getElementById("madrid-time");
+        if (timeElement) {
+            timeElement.textContent = madridTime;
+        }
+    }
+
+    updateMadridTime();
+    setInterval(updateMadridTime, 1000);
+</script>

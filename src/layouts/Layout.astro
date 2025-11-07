@@ -1,22 +1,129 @@
+---
+import Background from "../components/Background.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Limelight&family=Voltaire&display=swap"
+            rel="stylesheet"
+        />
+        <title>DCCXXV.DEV</title>
+    </head>
+    <body>
+        <Background />
+        <Header />
+        <slot />
+        <Footer />
+    </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+    :root {
+        --sol-purple: #85808e;
+        --sol-cyan: #b9c6ca;
+        --sol-pink: #d2cac9;
+        --sol-yellow: #dfd4c4;
+        --sol-teal: #a1b1b9;
+        --sol-blue: #133140;
+
+        --sol-light: #e8e4ec;
+        --sol-metal: #c7c1c5;
+        --sol-dark: #4a4458;
+        --sol-black: #14101a;
+    }
+
+    .bg-purple {
+        background-color: var(--sol-purple);
+    }
+    .bg-cyan {
+        background-color: var(--sol-cyan);
+    }
+    .bg-pink {
+        background-color: var(--sol-pink);
+    }
+    .bg-yellow {
+        background-color: var(--sol-yellow);
+    }
+    .bg-teal {
+        background-color: var(--sol-teal);
+    }
+
+    .bg-metal {
+        background-color: var(--sol-metal);
+    }
+    .bg-dark {
+        background-color: var(--sol-dark);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scrollbar-width: none;
+    }
+
+    body {
+        font-family: "Voltaire", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        color: var(--sol-black);
+    }
+
+    .limelight-bold {
+        font-family: "Limelight", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    .cardo-regular {
+        font-family: "Cardo", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .cardo-bold {
+        font-family: "Cardo", serif;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    .cardo-regular-italic {
+        font-family: "Cardo", serif;
+        font-weight: 400;
+        font-style: italic;
+    }
+
+    .voltaire-regular {
+        font-family: "Voltaire", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    ::selection {
+        color: var(--sol-yellow);
+        background-color: var(--sol-black);
+    }
 </style>
