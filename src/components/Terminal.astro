@@ -58,7 +58,7 @@
 </style>
 
 <script>
-    const commands = {
+    const commands: { [key: string]: string } = {
         help: `Available commands:
   help     - Show this message
   about    - Learn more about me
@@ -89,9 +89,11 @@ Or visit my GitHub for more: https://github.com/DCCXXV`,
         clear: "CLEAR",
     };
 
-    const terminal = document.getElementById("terminal");
-    const output = document.getElementById("output");
-    const input = document.getElementById("terminal-input");
+    const terminal = document.getElementById("terminal")!;
+    const output = document.getElementById("output")!;
+    const input = document.getElementById(
+        "terminal-input",
+    )! as HTMLInputElement;
 
     terminal.addEventListener("click", () => input.focus());
 

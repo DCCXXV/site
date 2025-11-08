@@ -1,0 +1,101 @@
+---
+import Sidebar from "../components/Sidebar.astro";
+import Layout from "../layouts/Layout.astro";
+
+interface Props {
+    title: string;
+    pageHeader: string;
+}
+
+const { title, pageHeader } = Astro.props;
+---
+
+<Layout title={title}>
+    <main>
+        <section id="text">
+            <h1 class="cardo-bold">{pageHeader}</h1>
+            <slot />
+        </section>
+        <Sidebar />
+    </main>
+</Layout>
+
+<style>
+    main {
+        display: flex;
+    }
+    h1 {
+        text-decoration: underline;
+        margin-bottom: 0.5rem;
+    }
+
+    #text {
+        margin: 1.5rem;
+        width: 60%;
+        padding-right: 1.5rem;
+        border-right: 2px dashed var(--sol-dark);
+    }
+
+    #text :global(h2) {
+        margin-top: 1rem;
+    }
+
+    #text :global(p) {
+        margin-bottom: 0.5rem;
+        font-variant-emoji: text;
+
+        text-align: justify;
+        hyphens: auto;
+        text-justify: inter-word;
+    }
+
+    #text :global(a) {
+        color: var(--sol-blue);
+    }
+
+    #text :global(a:visited) {
+        color: var(--sol-dark);
+    }
+
+    #text :global(ul) {
+        margin-left: 2rem;
+    }
+
+    #text :global(blockquote) {
+        font-style: italic;
+    }
+
+    #text :global(img) {
+        max-width: 100%;
+    }
+
+    #text :global(.img-file) {
+        background-color: var(--sol-yellow);
+        border: 1px solid var(--sol-dark);
+        width: fit-content;
+        padding: 0.5rem 3rem;
+        margin: 1rem 0 5px 0;
+    }
+
+    #text :global(.img-frame) {
+        background-color: var(--sol-metal);
+        border: 1px solid var(--sol-dark);
+        padding: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+        main {
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        #text {
+            width: 100%;
+            margin: 0;
+            padding: 1rem;
+            border-right: none;
+            border-bottom: 2px dashed var(--sol-dark);
+            box-sizing: border-box;
+        }
+    }
+</style>

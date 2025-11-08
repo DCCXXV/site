@@ -1,7 +1,33 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+const projects = await getCollection("projects");
+const latestProjects = projects
+    .sort(
+        (a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
+            b.data.date.valueOf() - a.data.date.valueOf(),
+    )
+    .slice(0, 3);
+---
+
 <section>
     <div id="latest-projects">
-        <h3>Latest Projects</h3>
-        <div class="content bg-teal"></div>
+        <h2>Latest Projects</h2>
+        <div class="content bg-teal">
+            <ul>
+                {
+                    latestProjects.map((project) => (
+                        <li>
+                            <a href={`/projects/${project.slug}`}>
+                                <h3>{project.data.title}</h3>
+                                <p>{project.data.description}</p>
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
     </div>
     <div id="latest-posts">
         <h3>Latest Posts</h3>
@@ -16,7 +42,8 @@
         box-sizing: border-box;
     }
 
-    h3 {
+    h2 {
+        font-size: 1.25rem;
         margin-bottom: 0.25rem;
     }
 
@@ -33,6 +60,21 @@
     .content {
         height: 400px;
         border: var(--sol-black) 1px solid;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0.5rem;
+    }
+
+    li {
+        width: 100%;
+        border-bottom: var(--sol-black) 1px solid;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--sol-black);
     }
 
     @media (max-width: 768px) {

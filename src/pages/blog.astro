@@ -1,27 +1,7 @@
 ---
-import Sidebar from "../components/Sidebar.astro";
-import Terminal from "../components/Terminal.astro";
-import Layout from "../layouts/Layout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<Layout title="Blog">
-    <main>
-        <section id="text">
-            <h1>Blog</h1>
-            <p>There is nothing here yet :^0</p>
-        </section>
-        <Sidebar />
-    </main>
-</Layout>
-
-<style>
-    main {
-        display: flex;
-    }
-    #text {
-        margin: 1.5rem;
-        width: 60%;
-        padding-right: 1.5rem;
-        border-right: 2px dashed var(--sol-dark);
-    }
-</style>
+<BaseLayout title="Blog | DCCXXV.DEV" pageHeader="Blog">
+    <p>There is nothing here yet :^0</p>
+</BaseLayout>

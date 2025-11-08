@@ -1,27 +1,54 @@
 ---
-import Sidebar from "../components/Sidebar.astro";
-import Terminal from "../components/Terminal.astro";
-import Layout from "../layouts/Layout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+const sortedProjects = projects.sort(
+    (a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
+        b.data.date.valueOf() - a.data.date.valueOf(),
+);
 ---
 
-<Layout title="Projects">
-    <main>
-        <section id="text">
-            <h1>Projects</h1>
-            <p>There is nothing here yet :^0</p>
-        </section>
-        <Sidebar />
-    </main>
-</Layout>
-
+<BaseLayout title="Projects | DCCXXV.DEV" pageHeader="Projects">
+    Some personal projects I've built for fun and learning :^)
+    <div class="projects-list">
+        {
+            sortedProjects.map((project) => (
+                <article class="project-card">
+                    <a href={`/projects/${project.slug}`}>
+                        <h2>{project.data.title}</h2>
+                    </a>
+                    <p class="description">{project.data.description}</p>
+                    {project.data.tags && (
+                        <div class="tags">
+                            {project.data.tags.map((tag) => (
+                                <span class="tag">{tag}</span>
+                            ))}
+                        </div>
+                    )}
+                </article>
+            ))
+        }
+    </div>
+</BaseLayout>
 <style>
-    main {
-        display: flex;
+    h2 {
+        margin-bottom: 0.5rem;
     }
-    #text {
-        margin: 1.5rem;
-        width: 60%;
-        padding-right: 1.5rem;
-        border-right: 2px dashed var(--sol-dark);
+    .project-card {
+        padding: 1rem;
+        margin-top: 0.5rem;
+        background-color: var(--sol-metal);
+        border: 1px solid var(--sol-dark);
+    }
+    .tags {
+        margin-top: 1rem;
+    }
+    .tag {
+        padding: 0.25rem 0.5rem;
+        margin-right: 5px;
+        color: var(--sol-dark);
+        border: 1px dashed var(--sol-dark);
     }
 </style>
