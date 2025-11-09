@@ -15,7 +15,7 @@ tags: ["Web", "SvelteKit", "Go", "WebSockets"]
 <div class="img-file">tic-tac-toe.webp</div>
 <div class="img-frame">
     <img src="/images/projects/tic-tac-toe.webp" alt="A match of tic-tac-toe in two-players.org" />
-    The TUI in question
+    A match of tic-tac-toe in two-players.org
 </div>
 
 
