@@ -1,8 +1,14 @@
 ---
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
-const projects = await getCollection("projects");
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const projects = await getCollection("projects", ({ id }) => {
+    return id.startsWith(`${lang}/`);
+});
 const latestProjects = projects
     .sort(
         (a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
@@ -13,7 +19,7 @@ const latestProjects = projects
 
 <section>
     <div id="latest-projects">
-        <h2>Latest Projects</h2>
+        <h2>{t("sidebar.latestProjects")}</h2>
         <div class="content bg-teal">
             <ul>
                 {
@@ -30,7 +36,7 @@ const latestProjects = projects
         </div>
     </div>
     <div id="latest-posts">
-        <h3>Latest Posts</h3>
+        <h3>{t("sidebar.latestPosts")}</h3>
         <div class="content bg-yellow"></div>
     </div>
 </section>

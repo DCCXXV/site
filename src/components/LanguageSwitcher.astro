@@ -1,0 +1,53 @@
+---
+const currentPath = Astro.url.pathname;
+const currentLang = currentPath.startsWith("/es") ? "es" : "en";
+import { ArrowRightLeft } from "lucide-astro";
+const alternateUrl =
+    currentLang === "en"
+        ? `/es${currentPath}`
+        : currentPath.replace(/^\/es/, "") || "/";
+---
+
+<a href={alternateUrl}>
+    <ArrowRightLeft size={14} />
+    <span class="lang-text">
+        {currentLang === "en" ? "Español" : "English"}
+    </span>
+    <span class="lang-code">
+        {currentLang === "en" ? "es" : "en"}
+    </span>
+</a>
+<style>
+    a {
+        background-color: var(--sol-metal);
+        color: var(--sol-black);
+        text-decoration: none;
+        padding: 0.25rem 0.5rem;
+        border: 4px double var(--sol-black);
+        white-space: nowrap;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    a:hover {
+        filter: brightness(0.9);
+    }
+
+    .lang-text {
+        display: inline;
+    }
+
+    .lang-code {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        .lang-text {
+            display: none;
+        }
+        .lang-code {
+            display: inline;
+        }
+    }
+</style>

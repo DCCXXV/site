@@ -1,58 +1,60 @@
 ---
-import Terminal from "../components/Terminal.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import Terminal from "../../components/Terminal.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import { Clock4 } from "lucide-astro";
 ---
 
-<BaseLayout title="About" pageHeader="About me" lang="en">
+<BaseLayout title="Acerca de" pageHeader="Acerca de mí" lang="es">
     <p>
-        Hello! I'm Marco Antonio and I am a final-year Software Engineering
-        student at <a href="https://ucm.es">Universidad Complutense de Madrid</a
-        >, Spain. For that reason I currently live in Madrid (<span
+        ¡Hola! Soy Marco Antonio y soy estudiante de último año de Ingeniería
+        Informática en la <a href="https://ucm.es"
+            >Universidad Complutense de Madrid</a
+        >, España. Por esa razón actualmente vivo en Madrid (<span
             class="time-tooltip"
-            title="Current time in Madrid"
+            title="Hora actual en Madrid"
         >
             <Clock4 size={15} />
             <span id="madrid-time">--:--</span></span
         > ).
     </p>
     <p>
-        I'm passionate about web development, backend systems and open-source
-        software. Currently, I'm learning Go (Golang) and deepening my knowledge
-        of modern web technologies. I am very curious and love trying new
-        technologies and languages that come out to see how I can add them to my
-        stack or what I can learn from them. I believe that it is very useful to
-        learn about most areas in software (even if it's only surface level
-        knowledge) to become a better overall engineer so I try to learn more
-        about low-level concepts, distributed systems, DevOps, databases, even
-        if I'm not sure I'll use that knowledge in my day to day work.
+        Me apasiona el desarrollo web, los sistemas backend y el software de
+        código abierto. Actualmente estoy aprendiendo Go (Golang) y
+        profundizando mis conocimientos sobre tecnologías web modernas. Soy muy
+        curioso y me encanta probar nuevas tecnologías y lenguajes que surgen
+        para ver cómo puedo añadirlos a mi stack o qué puedo aprender de ellos.
+        Creo que es muy útil aprender sobre la mayoría de áreas en software
+        (aunque sea solo conocimiento superficial) para convertirse en un
+        ingeniero mejor en general, así que intento aprender más sobre conceptos
+        de bajo nivel, sistemas distribuidos, DevOps, bases de datos, incluso si
+        no estoy seguro de si usaré ese conocimiento en mi trabajo diario.
     </p>
 
     <p>
-        I value simplicity both in design and in code. I believe the best
-        solutions are often the most straightforward ones, which is why I chose
-        to learn Go, its simplicity and focus on clarity align with how I think
-        software should be built. This philosophy extends to my work: I prefer
-        clean interfaces, readable code, and technologies that don't
-        overcomplicate things, *cough* *cough* rust. You can see this reflected
-        in this website itself, simple but not minimalist, just showing the
-        content for what it is.
+        Valoro la simplicidad tanto en el diseño como en el código. Creo que las
+        mejores soluciones son a menudo las más directas, por lo que elegí
+        aprender Go, su simplicidad y enfoque en la claridad se alinean con cómo
+        creo que debe construirse el software. Esta filosofía se extiende a mi
+        trabajo: prefiero interfaces limpias, código legible y tecnologías que
+        no compliquen las cosas innecesariamente, *tos* *tos* rust. Puedes ver
+        esto reflejado en este sitio web en sí, simple pero no minimalista, solo
+        mostrando el contenido por lo que es.
     </p>
 
     <Terminal />
 
     <p>
-        You can see more about my skills on this table, order left to right
-        matters, first comes the ones I know the most :
+        Puedes ver más sobre mis habilidades en esta tabla, el orden de
+        izquierda a derecha importa, primero vienen las que mejor conozco:
     </p>
 
     <table style="width:100%">
         <tr>
-            <th class="bg-yellow skill-col" rowspan="11">Skills</th>
+            <th class="bg-yellow skill-col" rowspan="11">Habilidades</th>
         </tr>
         <tr>
-            <th class="bg-cyan">Languages</th>
+            <th class="bg-cyan">Lenguajes</th>
             <td colspan="2"
                 ><u>Java</u>, <u>Go</u>, Python, Javascript, Typescript, Zig</td
             >
@@ -70,11 +72,11 @@ import { Clock4 } from "lucide-astro";
             <td><u>Tailwind</u>, Svelte, SvelteKit, Bootstrap, Astro</td>
         </tr>
         <tr>
-            <th class="bg-cyan">APIs/Protocols</th>
+            <th class="bg-cyan">APIs/Protocolos</th>
             <td colspan="2"><u>REST</u>, Websockets</td>
         </tr>
         <tr>
-            <th class="bg-cyan" rowspan="2">Libraries</th>
+            <th class="bg-cyan" rowspan="2">Librerías</th>
             <th class="bg-teal">Desktop</th>
             <td>Wails, Swing, Tkinter</td>
         </tr>
@@ -83,13 +85,13 @@ import { Clock4 } from "lucide-astro";
             <td>Bubble Tea, Lipgloss</td>
         </tr>
         <tr>
-            <th class="bg-cyan">Tools</th>
+            <th class="bg-cyan">Herramientas</th>
             <td colspan="2"
                 ><u>Linux</u>, <u>Git</u>, <u>GitHub</u>, Docker, Vim</td
             >
         </tr>
         <tr>
-            <th class="bg-cyan">Databases</th>
+            <th class="bg-cyan">Bases de datos</th>
             <td colspan="2"
                 ><u>PostgreSQL</u>, MySQL, MariaDB, Oracle, SQLite</td
             >
@@ -106,7 +108,7 @@ import { Clock4 } from "lucide-astro";
         </tr>
     </table>
     <br />
-    <p>Underline means they are the ones I am most comfortable with.</p>
+    <p>El subrayado indica aquellas con las que me siento más cómodo.</p>
 </BaseLayout>
 <style>
     .time-tooltip {
@@ -132,7 +134,7 @@ import { Clock4 } from "lucide-astro";
 <script>
     function updateMadridTime() {
         const now = new Date();
-        const madridTime = now.toLocaleTimeString("en-GB", {
+        const madridTime = now.toLocaleTimeString("es-ES", {
             timeZone: "Europe/Madrid",
             hour: "2-digit",
             minute: "2-digit",

@@ -1,10 +1,10 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
 const projects = await getCollection("projects", ({ id }) => {
-    return id.startsWith("en/");
+    return id.startsWith("es/");
 });
 const sortedProjects = projects.sort(
     (a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
@@ -12,8 +12,9 @@ const sortedProjects = projects.sort(
 );
 ---
 
-<BaseLayout title="Projects | DCCXXV.DEV" pageHeader="Projects" lang="en">
-    Some personal projects I've built for fun and learning :^)
+<BaseLayout title="Proyectos | DCCXXV.DEV" pageHeader="Proyectos" lang="es">
+    Algunos proyectos personales que he construido por diversión y aprendizaje
+    :^)
     <div class="projects-list">
         {
             sortedProjects.map((project) => (

@@ -5,20 +5,33 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
     const projects = await getCollection("projects");
-    return projects.map((project: CollectionEntry<"projects">) => ({
-        params: { slug: project.slug },
-        props: { project },
-    }));
+
+    return projects.map((project: CollectionEntry<"projects">) => {
+        const [lang, ...slugParts] = project.id.split("/");
+        const slug = slugParts.join("/").replace(".md", "");
+
+        return {
+            params: {
+                slug: lang === "es" ? `es/${slug}` : slug,
+            },
+            props: { project, lang },
+        };
+    });
 }
 
 type Props = {
     project: CollectionEntry<"projects">;
+    lang: string;
 };
 
-const { project } = Astro.props;
+const { project, lang } = Astro.props;
 const { Content } = await project.render();
 ---
 
-<BaseLayout title={project.data.title} pageHeader={project.data.title}>
+<BaseLayout
+    title={project.data.title}
+    pageHeader={project.data.title}
+    lang={lang}
+>
     <Content />
 </BaseLayout>
