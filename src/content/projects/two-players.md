@@ -21,7 +21,6 @@ tags: ["Web", "SvelteKit", "Go", "WebSockets"]
 
 ## Tech Stack
 - **Backend:** Go, PostgreSQL, WebSockets, sqlc, go-migrate
-
 - **Frontend:** SvelteKit, TypeScript, TailwindCSS, Bun
 
 ## What I Learned

@@ -37,6 +37,7 @@ const { title, pageHeader } = Astro.props;
     }
 
     #text :global(h2) {
+        margin-bottom: 0.25rem;
         margin-top: 1rem;
     }
 
@@ -59,6 +60,19 @@ const { title, pageHeader } = Astro.props;
 
     #text :global(ul) {
         margin-left: 2rem;
+        list-style: none;
+    }
+
+    #text :global(ul li) {
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+    #text :global(ul li::before) {
+        content: "🞷";
+        position: absolute;
+        left: 0;
+        top: 0;
     }
 
     #text :global(blockquote) {
@@ -67,19 +81,21 @@ const { title, pageHeader } = Astro.props;
 
     #text :global(img) {
         max-width: 100%;
+        border: 1px solid var(--sol-dark);
     }
 
     #text :global(.img-file) {
-        background-color: var(--sol-yellow);
-        border: 1px solid var(--sol-dark);
+        background-color: var(--sol-pink);
+        border: 4px double var(--sol-dark);
         width: fit-content;
-        padding: 0.5rem 3rem;
-        margin: 1rem 0 5px 0;
+        padding: 0.15rem 1rem;
+        margin: 1rem 0 4px 0;
     }
 
     #text :global(.img-frame) {
         background-color: var(--sol-metal);
         border: 1px solid var(--sol-dark);
+        color: var(--sol-dark);
         padding: 0.5rem;
     }
 

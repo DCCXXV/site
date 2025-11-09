@@ -1,5 +1,4 @@
 ---
-import Sidebar from "../components/Sidebar.astro";
 import Terminal from "../components/Terminal.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -54,20 +53,25 @@ import { Clock4 } from "lucide-astro";
         </tr>
         <tr>
             <th class="bg-cyan">Languages</th>
-            <td colspan="2">Java, Go, Python, Javascript, Typescript, Zig</td>
+            <td colspan="2"
+                ><u>Java</u>, <u>Go</u>, Python, Javascript, Typescript, Zig</td
+            >
         </tr>
         <tr>
             <th class="bg-cyan" rowspan="2">Web</th>
             <th class="bg-teal">Backend</th>
-            <td>Spring Boot, Go's net/http, Express, Gin, Echo, Flask</td>
+            <td
+                ><u>Spring Boot</u>, <u>Go's net/http</u>, Express, Gin, Echo,
+                Flask</td
+            >
         </tr>
         <tr>
             <th class="bg-teal">Frontend</th>
-            <td>Tailwind, Svelte, SvelteKit, Bootstrap, Astro</td>
+            <td><u>Tailwind</u>, Svelte, SvelteKit, Bootstrap, Astro</td>
         </tr>
         <tr>
             <th class="bg-cyan">APIs/Protocols</th>
-            <td colspan="2">REST, Websockets</td>
+            <td colspan="2"><u>REST</u>, Websockets</td>
         </tr>
         <tr>
             <th class="bg-cyan" rowspan="2">Libraries</th>
@@ -80,23 +84,30 @@ import { Clock4 } from "lucide-astro";
         </tr>
         <tr>
             <th class="bg-cyan">Tools</th>
-            <td colspan="2">Linux, Git, GitHub, Docker, Vim</td>
+            <td colspan="2"
+                ><u>Linux</u>, <u>Git</u>, <u>GitHub</u>, Docker, Vim</td
+            >
         </tr>
         <tr>
             <th class="bg-cyan">Databases</th>
-            <td colspan="2">PostgreSQL, MySQL, MariaDB, Oracle, SQLite</td>
+            <td colspan="2"
+                ><u>PostgreSQL</u>, MySQL, MariaDB, Oracle, SQLite</td
+            >
         </tr>
         <tr>
             <th class="bg-cyan">Testing</th>
-            <td colspan="2">Junit5, gotest, Karate, pytest</td>
-        </tr>
-        <tr>
-            <th class="bg-cyan">CI/CD</th>
-            <td colspan="2">GitHub Actions, Docker Compose</td>
+            <td colspan="2"
+                ><u>Junit5</u>, <u>gotest</u>, Karate, pytest
+                <tr>
+                    <th class="bg-cyan">CI/CD</th>
+                    <td colspan="2">GitHub Actions, Docker Compose</td>
+                </tr>
+            </td>
         </tr>
     </table>
+    <br />
+    <p>Underline means they are the ones I am most comfortable with.</p>
 </BaseLayout>
-
 <style>
     .time-tooltip {
         cursor: help;
