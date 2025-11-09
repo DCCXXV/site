@@ -1,8 +1,7 @@
 <section id="frame">
     <div id="terminal">
         <div id="output">
-            &gt; Hello world!<br />&gt; Type 'help' to see available commands<br
-            /><br />
+            Hello world!<br />Type 'help' to see available commands<br /><br />
         </div>
         <div id="input-line">
             <span>&gt;</span>
@@ -68,7 +67,7 @@
   clear    - Clear the terminal
   whoami   - Who am I?`,
 
-        about: `I'm Marco Antonio, a final-year Software Engineering student at Universidad Complutense de Madrid.
+        about: `I'm Marco Antonio, a final year Software Engineering student at Universidad Complutense de Madrid.
 I'm passionate about web development, backend systems, and open-source software.
 Currently learning Go and deepening my knowledge of modern web technologies.`,
 
@@ -84,7 +83,7 @@ Or visit my GitHub for more: https://github.com/DCCXXV`,
 📱 X: @DCCXXV_
 🐙 GitHub: DCCXXV`,
 
-        whoami: `marco-antonio@dccxxvdev ~ $`,
+        whoami: `guest`,
 
         clear: "CLEAR",
     };
@@ -107,7 +106,9 @@ Or visit my GitHub for more: https://github.com/DCCXXV`,
                 output.innerHTML = "";
             } else if (commands[command]) {
                 output.innerHTML +=
-                    commands[command].replace(/\n/g, "<br>") + "<br><br>";
+                    commands[command]
+                        .replace(/\n/g, "<br>")
+                        .replace(/\ /g, "&nbsp;") + "<br><br>";
             } else if (command === "") {
                 output.innerHTML += "<br>";
             } else {
