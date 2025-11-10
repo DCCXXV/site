@@ -17,6 +17,7 @@ tags: ["Web", "Astro"]
 ## What I Learned
 - Learned Astro's component based architecture and static site generation
 - Improved skills in building reusable components for better code maintainability
+- Learned how to use i18n for internationalization
 
 ## Links
 - [GitHub Repository](https://github.com/DCCXXV/site)

@@ -1,15 +1,26 @@
 <footer class="bg-dark">
     <div class="footer-content">
-        <p>DCCXXV.DEV</p>
-        <p>Email: marcoantonioperezneira@gmail.com</p>
-        <p>X/twitter: <a href="https://twitter.com/DCCXXV_">@DCCXXV_</a></p>
-        <p>
-            LinkedIn:
-            <a
-                href="https://www.linkedin.com/in/marco-antonio-p%C3%A9rez-neira-562b42342/"
-                >Marco Antonio Perez Neira</a
-            >
-        </p>
+        <div>
+            <!--<img src="/favicon.png" width="112" />-->
+            <p class="cardo-bold domain">DCCXXV.DEV</p>
+        </div>
+        <div>
+            <h4 class="cardo-bold">Contact</h4>
+            <div id="contact-info">
+                <p>Email: marcoantonioperezneira@gmail.com</p>
+                <p>
+                    X/twitter: <a href="https://twitter.com/DCCXXV_">@DCCXXV_</a
+                    >
+                </p>
+                <p>
+                    LinkedIn:
+                    <a
+                        href="https://www.linkedin.com/in/marco-antonio-p%C3%A9rez-neira-562b42342/"
+                        >Marco Antonio Perez Neira</a
+                    >
+                </p>
+            </div>
+        </div>
     </div>
 </footer>
 
@@ -25,14 +36,30 @@
         padding: 1.5rem 0;
     }
 
-    .footer-content {
-        max-width: 1350px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-    }
-
     a {
         text-decoration: none;
         color: var(--sol-purple);
+    }
+
+    .footer-content {
+        display: grid;
+        gap: 2rem;
+        max-width: 1350px;
+        margin: 0 auto;
+        padding: 1.5rem;
+    }
+
+    .footer-content > div {
+        flex: 1;
+    }
+
+    img {
+        opacity: 0.5;
+        image-rendering: pixelated;
+        margin-bottom: 0.5rem;
+    }
+
+    #contact-info {
+        margin-top: 1rem;
     }
 </style>
