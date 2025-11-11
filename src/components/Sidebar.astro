@@ -2,10 +2,8 @@
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
-
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
 const projects = await getCollection("projects", ({ id }) => {
     return id.startsWith(`${lang}/`);
 });
@@ -16,8 +14,7 @@ const latestProjects = projects
     )
     .slice(0, 4);
 ---
-
-<section>
+<section transition:persist="sidebar">
     <div id="latest-projects">
         <h2>{t("sidebar.latestProjects")}</h2>
         <div class="content bg-teal">
@@ -25,7 +22,7 @@ const latestProjects = projects
                 {
                     latestProjects.map((project) => (
                         <li>
-                            <a href={`/projects/${project.slug}`}>
+                            <a href=`/projects/${project.slug}`}>
                                 <h3>{project.data.title}</h3>
                                 <p>{project.data.description}</p>
                             </a>
@@ -42,9 +39,30 @@ const latestProjects = projects
     <div id="stats-for-nerds">
         <h3>{t("sidebar.stats")}</h3>
         <div class="content bg-pink">
-            <iframe
-                src="https://dccxxv.goatcounter.com?hideui=1"
-                style="width: 100%; height: 300px; border: none;"></iframe>
+            <ul class="stats-list">
+                <li>
+                    <strong>Page views:</strong>
+                    <span id="page-views">...</span>
+                </li>
+                <li>
+                    <strong>Time here:</strong>
+                    <span id="time-on-page">0s</span>
+                </li>
+                <li>
+                    <strong>Your time:</strong>
+                    <span id="user-time"></span>
+                </li>
+                <li>
+                    <strong>Screen:</strong>
+                    <span id="screen-res"></span>
+                </li>
+                <li>
+                    <strong>Full stats:</strong>
+                    <a href="https://dccxxv.goatcounter.com" target="_blank" rel="noopener">
+                        View dashboard →
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </section>
@@ -74,11 +92,49 @@ const latestProjects = projects
 
     #stats-for-nerds > .content {
         border: var(--sol-black) 4px double !important;
-        height: 100%;
+        height: auto;
+        padding: 0.5rem;
     }
 
-    #stats-for-nerds > .content li {
+    #goatcounter-stats {
+        margin-bottom: 0.5rem;
+    }
+
+    .stats-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 0.9rem;
+    }
+
+    .stats-list li {
         padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .stats-list li:last-child {
+        border-bottom: none;
+    }
+
+    .stats-list strong {
+        color: var(--sol-black);
+    }
+
+    .stats-list span {
+        color: var(--sol-dark);
+    }
+
+    .stats-list a {
+        color: var(--sol-dark);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .stats-list a:hover {
+        text-decoration: underline;
     }
 
     .content {
@@ -114,3 +170,58 @@ const latestProjects = projects
         }
     }
 </style>
+
+<script>
+    const loadPageViews = () => {
+        const checkGoatCounter = setInterval(() => {
+            if (window.goatcounter && window.goatcounter.get_data) {
+                clearInterval(checkGoatCounter);
+
+                const path = window.goatcounter.get_data()['p'];
+                const xhr = new XMLHttpRequest();
+
+                xhr.addEventListener('load', function() {
+                    try {
+                        const data = JSON.parse(this.responseText);
+                        const elem = document.getElementById('page-views');
+                        if (elem) {
+                            elem.textContent = data.count || '0';
+                        }
+                    } catch (e) {
+                        console.error('Error loading page views:', e);
+                    }
+                });
+
+                xhr.open('GET', 'https://dccxxv.goatcounter.com/counter/' + encodeURIComponent(path) + '.json');
+                xhr.send();
+            }
+        }, 100);
+    };
+
+    loadPageViews();
+
+    let seconds = 0;
+    setInterval(() => {
+        seconds++;
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        const elem = document.getElementById('time-on-page');
+        if (elem) {
+            elem.textContent = mins > 0 ? `${mins}m ${secs}s` : `${secs}s`;
+        }
+    }, 1000);
+
+    function updateTime() {
+        const elem = document.getElementById('user-time');
+        if (elem) {
+            elem.textContent = new Date().toLocaleTimeString();
+        }
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+
+    const screenElem = document.getElementById('screen-res');
+    if (screenElem) {
+        screenElem.textContent = `${window.screen.width}×${window.screen.height}`;
+    }
+</script>
