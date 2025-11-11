@@ -13,6 +13,9 @@ export const ui = {
     "sidebar.latestProjects": "Latest Projects",
     "sidebar.latestPosts": "Latest Posts",
     "sidebar.stats": "Stats",
+    "sidebar.pageViews": "Page views",
+    "sidebar.timeHere": "Time here",
+    "sidebar.fullStats": "Full stats",
   },
   es: {
     "nav.about": "Sobre mi",
@@ -21,5 +24,8 @@ export const ui = {
     "sidebar.latestProjects": "Últimos Proyectos",
     "sidebar.latestPosts": "Últimos Posts",
     "sidebar.stats": "Estadísticas",
+    "sidebar.pageViews": "Visitas",
+    "sidebar.timeHere": "Tiempo pasado",
+    "sidebar.fullStats": "Estadísticas completas",
   },
 } as const;
