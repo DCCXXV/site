@@ -39,6 +39,14 @@ const latestProjects = projects
         <h3>{t("sidebar.latestPosts")}</h3>
         <div class="content bg-yellow"></div>
     </div>
+    <div id="stats-for-nerds">
+        <h3>{t("sidebar.stats")}</h3>
+        <div class="content bg-pink">
+            <iframe
+                src="https://dccxxv.goatcounter.com?hideui=1"
+                style="width: 100%; height: 300px; border: none;"></iframe>
+        </div>
+    </div>
 </section>
 
 <style>
@@ -54,13 +62,23 @@ const latestProjects = projects
     }
 
     #latest-projects,
-    #latest-posts {
+    #latest-posts,
+    #stats-for-nerds {
         background-color: var(--sol-metal);
         border: var(--sol-black) 1px solid;
         padding: 0.5rem;
         width: 100%;
         box-sizing: border-box;
         margin-bottom: 1rem;
+    }
+
+    #stats-for-nerds > .content {
+        border: var(--sol-black) 4px double !important;
+        height: 100%;
+    }
+
+    #stats-for-nerds > .content li {
+        padding: 0.5rem 0;
     }
 
     .content {
