@@ -1,20 +1,35 @@
 ---
-const currentPath = Astro.url.pathname;
-const currentLang = currentPath.startsWith("/es") ? "es" : "en";
 import { ArrowRightLeft } from "lucide-astro";
-const alternateUrl =
-    currentLang === "en"
-        ? `/es${currentPath}`
-        : currentPath.replace(/^\/es/, "") || "/";
+import { getLangFromUrl } from "../i18n/utils";
+
+const currentPath = Astro.url.pathname;
+const currentLang = getLangFromUrl(Astro.url);
+
+let alternateUrl;
+if (currentLang === "en") {
+    if (currentPath.includes('/en/')) {
+        alternateUrl = currentPath.replace(/\/en\//, '/es/');
+    } else {
+        alternateUrl = `/es${currentPath}`;
+    }
+} else {
+    if (currentPath.includes('/es/')) {
+        alternateUrl = currentPath.replace(/^\/es/, "").replace(/\/es\//, '/en/') || "/";
+    } else {
+        alternateUrl = currentPath.replace(/^\/es/, "") || "/";
+    }
+}
+
+const langCode = currentLang === "en" ? "es" : "en";
 ---
 
-<a href={alternateUrl}>
+<a href={alternateUrl} hreflang={langCode}>
     <ArrowRightLeft size={14} />
-    <span class="lang-text">
+    <span lang={langCode} class="lang-text">
         {currentLang === "en" ? "Español" : "English"}
     </span>
     <span class="lang-code">
-        {currentLang === "en" ? "es" : "en"}
+        {langCode}
     </span>
 </a>
 <style>

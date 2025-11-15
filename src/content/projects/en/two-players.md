@@ -1,21 +1,58 @@
 ---
 title: "Two Players"
-date: 2025-09-03
-description: "A small web platform for playing combinatorial games online, created while learning Sveltekit, Go and WebSockets."
+date: 2025-11-15
+description: "A web platform for playing classic combinatorial games online, with support for multiple games, room system, and real-time chat."
 tags: ["Web", "SvelteKit", "Go", "WebSockets"]
 ---
 
-> A small web platform for playing combinatorial games online, created while learning Sveltekit, Go and WebSockets.
+> A web platform for playing classic combinatorial games online, with support for multiple games, room system, and real-time chat.
 
 ## Features
-- Real-time gameplay with WebSockets
-- Clean and responsive interface
+- **Multiple games**: Tic-Tac-Toe, Domineering, Nim, and more
+- **Real-time gameplay** with WebSockets
+- **In-game chat** to communicate with your opponent
+- **Rematch system** for playing multiple rounds
+- **Modern and responsive interface** with clean design
 
 
-<div class="img-file">tic-tac-toe.webp</div>
-<div class="img-frame">
-    <img src="/images/projects/tic-tac-toe.webp" alt="A match of tic-tac-toe in two-players.org" />
-    A match of tic-tac-toe in two-players.org
+<div class="tabbed-images">
+    <div class="tabs">
+        <button class="tab active" data-index="0">
+            <span class="tab-filename">landing.webp</span>
+        </button>
+        <button class="tab" data-index="1">
+            <span class="tab-filename">tic-tac-toe_lobby.webp</span>
+        </button>
+        <button class="tab" data-index="2">
+            <span class="tab-filename">domineering.webp</span>
+        </button>
+    </div>
+    <div class="tab-content">
+        <div class="tab-panel active" data-panel="0">
+            <div class="img-frame">
+                <a href="/images/projects/landing.webp" class="glightbox" data-description="two-players.org landing page">
+                    <img src="/images/projects/landing.webp" alt="two-players.org landing page" />
+                </a>
+                two-players.org landing page
+            </div>
+        </div>
+        <div class="tab-panel" data-panel="1">
+            <div class="img-frame">
+                <a href="/images/projects/tic-tac-toe_lobby.webp" class="glightbox" data-description="Game lobby for tic-tac-toe.">
+                    <img src="/images/projects/tic-tac-toe_lobby.webp" alt="Game lobby with player list" />
+                </a>
+                Game lobby for tic-tac-toe.
+            </div>
+        </div>
+        <div class="tab-panel" data-panel="2">
+            <div class="img-frame">
+                <a href="/images/projects/domineering.webp" class="glightbox" data-description="Playing Domineering on two-players.org">
+                    <img src="/images/projects/domineering.webp" alt="Playing Domineering" />
+                </a>
+                Playing Domineering on two-players.org
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -24,11 +61,14 @@ tags: ["Web", "SvelteKit", "Go", "WebSockets"]
 - **Frontend:** SvelteKit, TypeScript, TailwindCSS, Bun
 
 ## What I Learned
-- Implemented **real-time** communication with WebSockets
+- Implemented **real-time communication** with WebSockets for multiple simultaneous games
+- Designed a **modular game architecture** that allows adding new games easily
 - Managed database **migrations** using `go-migrate`
-- Built a **fullstack** architecture with Go + SvelteKit
-- Improved skills in designing **responsive** UIs with TailwindCSS
+- Built a scalable **fullstack architecture** with Go + SvelteKit
+- Implemented a **room system** with real-time state management
+- Improved skills in designing **responsive user interfaces** with TailwindCSS
 - Learned to build frontend applications using **reusable components** in Svelte
+- Developed **combinatorial game logic** and winner detection
 - Deployed the application on a **VPS**, strengthening my Linux and **deployment** skills
 
 ## Links
