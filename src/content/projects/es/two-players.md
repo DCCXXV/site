@@ -30,24 +30,24 @@ tags: ["Web", "SvelteKit", "Go", "WebSockets"]
     <div class="tab-content">
         <div class="tab-panel active" data-panel="0">
             <div class="img-frame">
-                <a href="/images/projects/landing.webp" class="glightbox" data-description="Página principal de two-players.org">
-                    <img src="/images/projects/landing.webp" alt="Página principal de two-players.org" />
+                <a href="/images/projects/two-players.org_landing.webp" class="glightbox" data-description="Página principal de two-players.org">
+                    <img src="/images/projects/two-players.org_landing.webp" alt="Página principal de two-players.org" />
                 </a>
                 Página principal de two-players.org
             </div>
         </div>
         <div class="tab-panel" data-panel="1">
             <div class="img-frame">
-                <a href="/images/projects/tic-tac-toe_lobby.webp" class="glightbox" data-description="Lobby de juego para tic-tac-toe.">
-                    <img src="/images/projects/tic-tac-toe_lobby.webp" alt="Lobby de juego con lista de jugadores" />
+                <a href="/images/projects/two-players.org_tic-tac-toe_lobby.webp" class="glightbox" data-description="Lobby de juego para tic-tac-toe.">
+                    <img src="/images/projects/two-players.org_tic-tac-toe_lobby.webp" alt="Lobby de juego con lista de jugadores" />
                 </a>
                 Lobby de juego para tic-tac-toe.
             </div>
         </div>
         <div class="tab-panel" data-panel="2">
             <div class="img-frame">
-                <a href="/images/projects/domineering.webp" class="glightbox" data-description="Jugando Domineering en two-players.org">
-                    <img src="/images/projects/domineering.webp" alt="Jugando Domineering" />
+                <a href="/images/projects/two-players.org_domineering.webp" class="glightbox" data-description="Jugando Domineering en two-players.org">
+                    <img src="/images/projects/two-players.org_domineering.webp" alt="Jugando Domineering" />
                 </a>
                 Jugando Domineering en two-players.org
             </div>
