@@ -10,21 +10,21 @@ const projects = await getCollection("projects", ({ id }) => {
 const latestProjects = projects
     .sort(
         (a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
-            b.data.date.valueOf() - a.data.date.valueOf(),
+            a.data.rank - b.data.rank,
     )
-    .slice(0, 4);
+    .slice(0, 3);
 ---
 <section>
     <div id="latest-projects">
         <h2>{t("sidebar.latestProjects")}</h2>
-        <div class="content bg-teal">
+        <div class="cutive-mono-regular content bg-teal">
             <ul>
                 {
                     latestProjects.map((project) => (
                         <li>
                             <a href=`/projects/${project.slug}`}>
                                 <h3>{project.data.title}</h3>
-                                <p>{project.data.description}</p>
+                                <p >{project.data.description}</p>
                             </a>
                         </li>
                     ))
@@ -141,7 +141,8 @@ const latestProjects = projects
 
     li {
         width: 100%;
-        border-bottom: var(--sol-black) 1px solid;
+        padding: 0.5rem 0 !important;
+        border-bottom: var(--sol-black) 1px dashed;
     }
 
     a:hover {

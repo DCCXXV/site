@@ -1,6 +1,7 @@
 ---
 title: "Two Players"
-date: 2025-11-15
+rank: 1
+size: large
 description: "Una plataforma web para jugar juegos combinatorios clásicos en línea, con soporte para múltiples juegos, sistema de salas y chat en tiempo real."
 tags: ["Web", "SvelteKit", "Go", "WebSockets"]
 ---
@@ -8,12 +9,12 @@ tags: ["Web", "SvelteKit", "Go", "WebSockets"]
 > Una plataforma web para jugar juegos combinatorios clásicos en línea, con soporte para múltiples juegos, sistema de salas y chat en tiempo real.
 
 ## Características
+
 - **Múltiples juegos**: Tic-Tac-Toe, Domineering, Nim y más
 - **Juego en tiempo real** con WebSockets
 - **Chat en juego** para comunicarse con tu oponente
 - **Sistema de revancha** para jugar múltiples rondas
 - **Interfaz moderna y responsiva** con diseño limpio
-
 
 <div class="tabbed-images">
     <div class="tabs">
@@ -55,12 +56,13 @@ tags: ["Web", "SvelteKit", "Go", "WebSockets"]
     </div>
 </div>
 
-
 ## Tech Stack
+
 - **Backend:** Go, PostgreSQL, WebSockets, sqlc, go-migrate
 - **Frontend:** SvelteKit, TypeScript, TailwindCSS, Bun
 
 ## Lo que aprendí
+
 - Implementé **comunicación en tiempo real** con WebSockets para múltiples juegos simultáneos
 - Diseñé una **arquitectura de juegos modular** que permite agregar nuevos juegos fácilmente
 - Gestioné **migraciones de bases de datos** usando `go-migrate`
@@ -72,5 +74,6 @@ tags: ["Web", "SvelteKit", "Go", "WebSockets"]
 - Desplegué la aplicación en un **VPS**, fortaleciendo mis habilidades en Linux y **despliegue**
 
 ## Enlaces
+
 - [Repositorio de GitHub](https://github.com/DCCXXV/two-players.org)
 - [Demo en vivo](https://two-players.org)

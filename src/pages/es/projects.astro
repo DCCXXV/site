@@ -8,7 +8,7 @@ const projects = await getCollection("projects", ({ id }) => {
 });
 const sortedProjects = projects.sort(
     (a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
-        b.data.date.valueOf() - a.data.date.valueOf(),
+        a.data.rank - b.data.rank,
 );
 ---
 
@@ -19,6 +19,16 @@ const sortedProjects = projects.sort(
         {
             sortedProjects.map((project) => (
                 <article class="project-card">
+                    <div class="size-badge">
+                        <span class="size-label">tamaño</span>
+                        <span class="size-value">
+                            {project.data.size === "small"
+                                ? "pequeño"
+                                : project.data.size === "medium"
+                                  ? "mediano"
+                                  : "grande"}
+                        </span>
+                    </div>
                     <a href={`/projects/${project.slug}`}>
                         <h2>{project.data.title}</h2>
                     </a>
@@ -38,6 +48,7 @@ const sortedProjects = projects.sort(
 <style>
     h2 {
         margin-bottom: 0.5rem;
+        padding-right: 7rem;
     }
 
     a {
@@ -45,10 +56,33 @@ const sortedProjects = projects.sort(
     }
 
     .project-card {
+        position: relative;
         padding: 1rem;
         margin-top: 0.5rem;
         background-color: var(--sol-metal);
         border: 1px solid var(--sol-dark);
+    }
+
+    .size-badge {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        display: flex;
+        border: 1px solid var(--sol-dark);
+        font-size: 0.75rem;
+        z-index: 1;
+    }
+
+    .size-label {
+        padding: 0.15rem 0.4rem;
+        background-color: var(--sol-dark);
+        color: var(--sol-metal);
+    }
+
+    .size-value {
+        padding: 0.15rem 0.4rem;
+        background-color: var(--sol-metal);
+        color: var(--sol-dark);
     }
 
     .tags {
