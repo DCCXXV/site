@@ -8,9 +8,15 @@ tags: ["Web", "SvelteKit", "Go", "WebSockets"]
 
 > A web platform for playing classic combinatorial games online, with support for multiple games, room system, and real-time chat.
 
+## Why I Built This
+
+While exploring Wikipedia I randomly came across the combinatorial game theory page and found it really interesting. I picked up _Lessons in Play_ based on the recommendations, and on the first chapter it told me to go play some games of Domineering with a friend first. However, I didn't have dominoes nor a board to play on, looking online I didn't see any place these classic combinatorial games... So I built one. This project became my way to explore both game theory and full-stack development, and now there is a platform where anyone can play these games with friends online ^^
+
+Play here!: https://two-players.org
+
 ## Features
 
-- **Multiple games**: Tic-Tac-Toe, Domineering, Nim, and more
+- **Multiple games**: Tic-Tac-Toe, Domineering, Dots and Boxes, and more
 - **Real-time gameplay** with WebSockets
 - **In-game chat** to communicate with your opponent
 - **Rematch system** for playing multiple rounds
@@ -63,17 +69,14 @@ tags: ["Web", "SvelteKit", "Go", "WebSockets"]
 
 ## What I Learned
 
-- Implemented **real-time communication** with WebSockets for multiple simultaneous games
-- Designed a **modular game architecture** that allows adding new games easily
-- Managed database **migrations** using `go-migrate`
-- Built a scalable **fullstack architecture** with Go + SvelteKit
-- Implemented a **room system** with real-time state management
-- Improved skills in designing **responsive user interfaces** with TailwindCSS
-- Learned to build frontend applications using **reusable components** in Svelte
-- Developed **combinatorial game logic** and winner detection
-- Deployed the application on a **VPS**, strengthening my Linux and **deployment** skills
+- **Real-time Architecture**: Implemented WebSocket-based pub/sub system with goroutine per client pattern, handling concurrent connections with mutex guards and non-blocking channel queues
+- **Modular Game System**: Designed extensible game architecture using factory pattern and interfaces, allowing seamless addition of new games
+- **Concurrent State Management**: Built thread safe room system with lazy loading and automatic cleanup of stale connections
+- **Database Integration**: Managed schema migrations with `go-migrate` and generated type-safe queries using `sqlc`
+- **Modern Frontend Development**: Created reactive UI with SvelteKit components and TailwindCSS, implementing real-time state synchronization
+- **Production Deployment**: Deployed fullstack application on VPS, managing Linux services and PostgreSQL database
 
 ## Links
 
+- [Site](https://two-players.org)
 - [GitHub Repository](https://github.com/DCCXXV/two-players.org)
-- [Live Demo](https://two-players.org)
