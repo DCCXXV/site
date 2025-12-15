@@ -4,7 +4,7 @@
             Hello world!<br />Type 'help' to see available commands<br /><br />
         </div>
         <div id="input-line">
-            <span>&gt;</span>
+            <span>guest@dccxxv.dev:~$</span>
             <input type="text" id="terminal-input" autofocus />
         </div>
     </div>
@@ -67,16 +67,11 @@
   clear    - Clear the terminal
   whoami   - Who am I?`,
 
-        about: `I'm Marco Antonio, a final year Software Engineering student at Universidad Complutense de Madrid.
-I'm passionate about web development, backend systems, and open-source software.
-Currently learning Go and deepening my knowledge of modern web technologies.`,
+        about: `Read above ^^`,
 
-        skills: `Languages: Go, Java, Python
-Web: HTML, CSS, Svelte, Astro, Node.js
-Systems: Linux, Git, Docker
-Databases: PostgreSQL, MySQL, sqlite`,
+        skills: `Table below has (almost) everything :-)`,
 
-        projects: `Check out my latest projects in the Projects tab above!
+        projects: `You can look at my latest projects in the Projects tab above!
 Or visit my GitHub for more: https://github.com/DCCXXV`,
 
         contact: `📧 Email: marcoantonioperezneira@gmail.com
@@ -100,7 +95,7 @@ Or visit my GitHub for more: https://github.com/DCCXXV`,
         if (e.key === "Enter") {
             const command = input.value.trim().toLowerCase();
 
-            output.innerHTML += `&gt; ${input.value}<br>`;
+            output.innerHTML += `guest@dccxxv.dev:~$ ${input.value}<br>`;
 
             if (command === "clear") {
                 output.innerHTML = "";

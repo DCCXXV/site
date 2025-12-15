@@ -19,7 +19,7 @@ tags: ["Go", "TUI", "Bubble Tea"]
     El TUI en cuestión
 </div>
 
-## Tech Stack
+## Tecnologías
 
 - Go, Bubble Tea, Lipgloss
 

@@ -13,7 +13,7 @@ tags: ["Web", "Astro"]
 - Portfolio showcase with project highlights
 - Blog with markdown support
 
-## Tech Stack
+## Stack
 
 - **Framework:** Astro
 

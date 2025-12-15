@@ -12,7 +12,7 @@ const latestProjects = projects
         (a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
             a.data.rank - b.data.rank,
     )
-    .slice(0, 3);
+    .slice(0, 4);
 ---
 <section>
     <div id="latest-projects">
@@ -38,7 +38,7 @@ const latestProjects = projects
     </div>
     <div id="stats-for-nerds">
         <h3>{t("sidebar.stats")}</h3>
-        <div class="content bg-pink">
+        <div class="bg-pink">
             <ul class="stats-list">
                 <li>
                     <strong>{t("sidebar.pageViews")}:</strong>
@@ -82,19 +82,14 @@ const latestProjects = projects
         margin-bottom: 1rem;
     }
 
-    #stats-for-nerds > .content {
-        border: var(--sol-black) 4px double !important;
-        height: auto;
-        padding: 0.5rem;
-    }
-
     #goatcounter-stats {
         margin-bottom: 0.5rem;
     }
 
     .stats-list {
+        border: var(--sol-black) 4px double !important;
+        padding: 0.25rem 0.5rem;
         list-style: none;
-        padding: 0;
         margin: 0;
         font-size: 0.9rem;
     }
@@ -130,7 +125,7 @@ const latestProjects = projects
     }
 
     .content {
-        height: 400px;
+        min-height: 300px;
         border: var(--sol-black) 1px solid;
     }
 

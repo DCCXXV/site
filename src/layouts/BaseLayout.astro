@@ -1,7 +1,7 @@
 ---
 import Sidebar from "../components/Sidebar.astro";
 import Layout from "../layouts/Layout.astro";
-import 'glightbox/dist/css/glightbox.min.css';
+import "glightbox/dist/css/glightbox.min.css";
 
 interface Props {
     title: string;
@@ -63,6 +63,11 @@ const { title, pageHeader, lang = "en" } = Astro.props;
     #text :global(ul) {
         margin-left: 2rem;
         list-style-type: square;
+    }
+
+    #text :global(ul ul) {
+        margin-left: 2rem;
+        list-style-type: circle;
     }
 
     #text :global(blockquote) {
@@ -166,36 +171,42 @@ const { title, pageHeader, lang = "en" } = Astro.props;
 </style>
 
 <script>
-    import GLightbox from 'glightbox';
+    import GLightbox from "glightbox";
 
-    document.addEventListener('astro:page-load', () => {
-        const tabbedContainers = document.querySelectorAll('.tabbed-images');
+    document.addEventListener("astro:page-load", () => {
+        const tabbedContainers = document.querySelectorAll(".tabbed-images");
 
-        tabbedContainers.forEach(container => {
-            const tabs = container.querySelectorAll('.tab');
-            const panels = container.querySelectorAll('.tab-panel');
+        tabbedContainers.forEach((container) => {
+            const tabs = container.querySelectorAll(".tab");
+            const panels = container.querySelectorAll(".tab-panel");
 
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    const index = tab.getAttribute('data-index');
+            tabs.forEach((tab) => {
+                tab.addEventListener("click", () => {
+                    const index = tab.getAttribute("data-index");
 
-                    container.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                    container.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                    container
+                        .querySelectorAll(".tab")
+                        .forEach((t) => t.classList.remove("active"));
+                    container
+                        .querySelectorAll(".tab-panel")
+                        .forEach((p) => p.classList.remove("active"));
 
-                    tab.classList.add('active');
-                    const panel = container.querySelector(`[data-panel="${index}"]`);
+                    tab.classList.add("active");
+                    const panel = container.querySelector(
+                        `[data-panel="${index}"]`,
+                    );
                     if (panel) {
-                        panel.classList.add('active');
+                        panel.classList.add("active");
                     }
                 });
             });
         });
 
         const lightbox = GLightbox({
-            selector: '.glightbox',
+            selector: ".glightbox",
             touchNavigation: true,
             loop: false,
-            autoplayVideos: false
+            autoplayVideos: false,
         });
     });
 </script>

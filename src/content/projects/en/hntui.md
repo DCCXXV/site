@@ -1,6 +1,6 @@
 ---
 title: "hntui"
-rank: 3
+rank: 4
 size: small
 description: "A small Hacker News TUI client made while learning Go for CLI/TUI development with Bubble Tea."
 tags: ["Go", "TUI", "Bubble Tea"]
@@ -19,7 +19,7 @@ tags: ["Go", "TUI", "Bubble Tea"]
     The TUI in question
 </div>
 
-## Tech Stack
+## Stack
 
 - Go, Bubble Tea, Lipgloss
 

@@ -1,5 +1,5 @@
 ---
-title: "Two Players"
+title: "two-players.org"
 rank: 1
 size: large
 description: "A web platform for playing classic combinatorial games online, with support for multiple games, room system, and real-time chat."
@@ -10,7 +10,7 @@ tags: ["Web", "SvelteKit", "Go", "WebSockets"]
 
 ## Why I Built This
 
-While exploring Wikipedia I randomly came across the combinatorial game theory page and found it really interesting. I picked up _Lessons in Play_ based on the recommendations, and on the first chapter it told me to go play some games of Domineering with a friend first. However, I didn't have dominoes nor a board to play on, looking online I didn't see any place these classic combinatorial games... So I built one. This project became my way to explore both game theory and full-stack development, and now there is a platform where anyone can play these games with friends online ^^
+While exploring Wikipedia I randomly came across the combinatorial game theory page and found it really interesting. I picked up _Lessons in Play_ based on the recommendations, and on the first chapter it told me to go play some games of Domineering with a friend first. However, I didn't have dominoes nor a board to play on, looking online I didn't see any place these classic combinatorial games... So I built one. This project became my way to explore both game theory and **fullstack** development, and now there is a platform where anyone can play these games with friends online ^^
 
 Play here!: https://two-players.org
 
@@ -62,7 +62,7 @@ Play here!: https://two-players.org
     </div>
 </div>
 
-## Tech Stack
+## Stack
 
 - **Backend:** Go, PostgreSQL, WebSockets, sqlc, go-migrate
 - **Frontend:** SvelteKit, TypeScript, TailwindCSS, Bun

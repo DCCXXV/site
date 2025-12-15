@@ -13,7 +13,7 @@ tags: ["Web", "Astro"]
 - Muestra de portafolio con proyectos destacados
 - Blog con soporte para markdown
 
-## Tech Stack
+## Tecnologías
 
 - **Framework:** Astro
 
