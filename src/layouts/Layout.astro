@@ -33,7 +33,7 @@ const { title, lang = "en" } = Astro.props;
             src="//gc.zgo.at/count.js"></script>
         <title>{title}</title>
     </head>
-    <body>
+    <body transition:animate="none">
         <Background />
         <Header />
         <slot />
